@@ -3,6 +3,8 @@
 function playRound(playerSelection, computerSelection) {
         
         let result = '';
+        let playerSelection = userInput();
+        let computerSelection = getComputerChoice();
     
         if (playerSelection === 'rock') {
         
@@ -56,10 +58,8 @@ function playRound(playerSelection, computerSelection) {
         break;
     }
     console.log (`You picked ${playerSelection} and the Comptuer picked ${computerSelection}. ${result}`);
+    
 }
-const playerSelection = userInput();
-const computerSelection = getComputerChoice();
-
 function userInput () {
     let playerSelection = '';
     let playerPrompt = prompt("Please enter your choice");
@@ -74,7 +74,6 @@ function userInput () {
     }
     return playerSelection;
 }
-
 function getComputerChoice () {
     let computerMove = '';
     let computerPick = Math.random();
@@ -86,5 +85,8 @@ function getComputerChoice () {
         computerMove = 'scissors';
     }
     return computerMove;
+
+
 }
+console.log(playRound(playerSelection, computerSelection);)
 }
