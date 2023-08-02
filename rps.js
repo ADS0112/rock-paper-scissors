@@ -1,92 +1,68 @@
+function playGame(playerMove) {
+    const cMove = pickComputerMove();
 
+  let result = '';
 
-function playRound(playerSelection, computerSelection) {
-        
-        let result = '';
-        let playerSelection = userInput();
-        let computerSelection = getComputerChoice();
+  if (playerMove === 'scissors') {
+  switch(cMove) {
+    case 'rock':
+      result = 'You Lose';
+      break;
+
+    case 'paper':
+      result = 'You Win';
+      break;
     
-        if (playerSelection === 'rock') {
-        
-        switch(computerSelection) {
-            
-            case 'rock':
-            result = 'You Tied';
-            break;
-
-            case 'paper':
-            result = 'You lose';
-            break;
-            
-            case 'scissors':
-            result = 'You Win';
-            break;
-
-        } 
-    } else if (playerSelection === 'paper') {
-        
-        switch(computerSelection) {
-            
-            case 'rock':
-            result ='You Win';
-            break;
-
-            case 'paper':
-            result ='You Tied';
-            break;
-            
-            case 'scissors':
-            result ='You Lose';
-            break;
-        }
-  
- 
-}   else if (playerSelection === 'scissors') {
-        
-    switch(computerSelection) {
-        
-        case 'rock':
-        result ='You Lose';
-        break;
-
-        case 'paper':
-        result ='You Win';
-        break;
-        
-        case 'scissors':
-        result ='You Tied';
-        break;
+    case 'scissors':
+      result = 'Tie';
+      break;
     }
-    console.log (`You picked ${playerSelection} and the Comptuer picked ${computerSelection}. ${result}`);
     
-}
-function userInput () {
-    let playerSelection = '';
-    let playerPrompt = prompt("Please enter your choice");
-    playerPrompt = playerPrompt.toLowerCase();
+  } else if (playerMove === 'paper')
+  {
+  switch(cMove) {
+  case 'rock':
+    result = 'You win';
+    break;
 
-    if (playerPrompt === 'rock') {
-        playerSelection = 'rock';
-    } else if (playerPrompt === 'paper') {
-        playerSelection = 'paper'
-    } else if (playerPrompt === 'scissors') {
-        playerSelection = 'scissors'
+  case 'paper':
+    result = 'Tie';
+    break;
+
+  case 'scissors':
+    result = 'You Lose';
+    break;
+  } 
+
+} else if (playerMove === 'rock') {
+  switch(cMove) {
+  case 'rock':
+    result = 'Tie';
+    break;
+
+  case 'paper':
+    result = 'You Lose';
+    break;
+
+  case 'scissors':
+    result = 'You Win';
+    break;
+}
+}
+     alert(`You picked ${playerMove}! The computer picked ${cMove}! ${result}`);
+  }
+    
+
+    function pickComputerMove() {
+      let cMove = '';
+      const comp = Math.random();
+    if (comp >= 0 && comp < 1/3) {
+    cMove = 'rock';
+    } else if (comp >= 1/3 && comp < 2/3)
+    {
+      cMove = 'paper';
+    } else if (comp >= 2/3 && comp < 1) {
+      cMove = 'scissors';
     }
-    return playerSelection;
-}
-function getComputerChoice () {
-    let computerMove = '';
-    let computerPick = Math.random();
-    if (computerPick >= 0 && computerPick < 1/3) {
-        computerMove = 'rock';
-    } else if (computerPick >= 1/3 && computerPick < 2/3) {
-        computerMove = 'paper';
-    } else if (computerPick >= 2/3 && computerPick < 1) {
-        computerMove = 'scissors';
-    }
-    return computerMove;
-
-
-}
-console.log(playRound(playerSelection, computerSelection);)
-}
+    return cMove;
+  }
