@@ -1,5 +1,65 @@
 
 
+function playRound(playerSelection, computerSelection) {
+        
+        let result = '';
+    
+        if (playerSelection === 'rock') {
+        
+        switch(computerSelection) {
+            
+            case 'rock':
+            result = 'You Tied';
+            break;
+
+            case 'paper':
+            result = 'You lose';
+            break;
+            
+            case 'scissors':
+            result = 'You Win';
+            break;
+
+        } 
+    } else if (playerSelection === 'paper') {
+        
+        switch(computerSelection) {
+            
+            case 'rock':
+            result ='You Win';
+            break;
+
+            case 'paper':
+            result ='You Tied';
+            break;
+            
+            case 'scissors':
+            result ='You Lose';
+            break;
+        }
+  
+ 
+}   else if (playerSelection === 'scissors') {
+        
+    switch(computerSelection) {
+        
+        case 'rock':
+        result ='You Lose';
+        break;
+
+        case 'paper':
+        result ='You Win';
+        break;
+        
+        case 'scissors':
+        result ='You Tied';
+        break;
+    }
+    console.log (`You picked ${playerSelection} and the Comptuer picked ${computerSelection}. ${result}`);
+}
+const playerSelection = userInput();
+const computerSelection = getComputerChoice();
+
 function userInput () {
     let playerSelection = '';
     let playerPrompt = prompt("Please enter your choice");
@@ -14,7 +74,7 @@ function userInput () {
     }
     return playerSelection;
 }
-console.log(userInput());
+
 function getComputerChoice () {
     let computerMove = '';
     let computerPick = Math.random();
@@ -26,4 +86,5 @@ function getComputerChoice () {
         computerMove = 'scissors';
     }
     return computerMove;
+}
 }
