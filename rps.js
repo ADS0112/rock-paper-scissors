@@ -51,7 +51,7 @@ function playGame(playerMove) {
 }
      alert(`You picked ${playerMove}! The computer picked ${cMove}! ${result}`);
   }
-    
+    // caclcautes moves for computer here
 
     function pickComputerMove() {
       let cMove = '';
